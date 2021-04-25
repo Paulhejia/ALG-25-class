@@ -6,8 +6,15 @@
 
 空间复杂度：O(1)
 
+  /*
+     集体思路：作为摊主 面对每一位顾客给的钱 只会有三种情况
+     当收5元  five++
+     当收10元 ten++ five--
+     当收20元
+        1. 若有10元：ten-- + five--（优先使用这种方式找零）
+        2. 若无10元：five-=3
+     先计算 后判断：最终判断 five 是否还有 若无再无法找零了
 */
-
 var lemonadeChange = function(bills) {
     let ten = 0, five = 0;
     for(const bill of bills) {
