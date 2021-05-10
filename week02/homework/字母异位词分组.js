@@ -25,3 +25,10 @@ var groupAnagrams = function(strs) {
     }
     return Array.from(map.values());
 };
+
+var groupAnagrams = (strs) => {
+    const map = new Map();
+    for(let str of strs ) {
+        let array = Array.from(str);
+    }
+}
