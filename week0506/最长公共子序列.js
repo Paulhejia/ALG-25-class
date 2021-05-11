@@ -1,3 +1,5 @@
+// 题解 https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-tu-wen-jie-xi-by-yijiaoqian/
+
 var longestCommonSubsequence = function (text1, text2) {
     const m = text1.length;
     const n = text2.length;

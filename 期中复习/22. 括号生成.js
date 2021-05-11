@@ -1,3 +1,4 @@
+ 
 var generateParenthesis = function (n) {
     let res = [];
     function dfs(str, left, right) {

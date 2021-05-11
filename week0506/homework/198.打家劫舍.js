@@ -1,5 +1,5 @@
-// i号房没偷 dp[i][0] = dp[i-1][1]
-// i号房有偷 dp[i][1] = dp[i-2][1] + nums[i]
+// i号房没偷 dp[i][0] = max(dp[i-1][1], dp[i-1][0])
+// i号房有偷 dp[i][1] = dp[i-1][0] + nums[i]
 
 /* 
     dp[i] = max(dp[i][0], dp[i][1]);
@@ -20,8 +20,8 @@ var rob = function(nums) {
 
 // 优化空间
 var rob = function(nums) {    
-    let curr = nums[0];
-    let prev = Math.max(nums[1]+0, nums[0]);
+    let prev = nums[0];
+    let curr = Math.max(nums[1]+0, nums[0]);
     for(let val of nums) {
         const temp = Math.max(curr, prev + val );
         prev = curr;
