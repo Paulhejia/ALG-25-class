@@ -32,3 +32,27 @@ function robRange(nums, start, end) {
     }
     return curr;
 }
+
+function rob(nums) {
+    if(nums === null || nums.lenght === 0) {
+        return 0;
+    }
+    const n = nums.length;
+    if(n === 1) {
+        return 1;
+    }
+    else if(n === 2) { /* 这个边界条件很重要 */
+        return Math.max(nums[0], nums[1]);
+    }
+    return Math.max(robRange(nums, 0, n - 1), robRange(nums, 1, n));
+}
+function robRange(nums, start, end, ) {
+    let prev2 = nums[start];
+    let prev1 = Math.max(nums[start], nums[start + 1]);
+    for(let i = start + 2; i < end; i++) {
+        let tmp = prev1;
+        prev1 = Math.max(prev2 + nums[i], prev1);
+        prev2 = tmp;
+    }
+    return prev1;
+}

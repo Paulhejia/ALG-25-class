@@ -29,3 +29,33 @@ var rob = function(nums) {
     }
     return curr;
 }    
+
+var rob = function(nums) {
+    const n = nums.length;
+    const dp = new Array(n).fill(0);
+    dp[0] = nums[0];
+    dp[1] = Math.max(nums[0], num[1]);
+    for(let i = 2; i < n ;i++) {
+        dp[i] = Math.max(dp[i-2] + dp[i], dp[i-1]);
+    }
+    return dp[n-1];
+}
+
+var rob = function(nums) {
+    if(nums.length === 0) {
+        return 0;
+    }
+    const n = nums.length;
+    if(n === 1) {
+        return nums[0];
+    }
+    let prev2 = nums[0]; // k-2
+    let prev1 = Math.max(prev2, nums[1]); // k-1
+
+    for(let i = 2; i < n; i++) {
+        let tmp = prev1;
+        prev1 = Math.max(prev2 + nums[n], prev1);
+        prev2 = prev1;
+    }
+    return prev1;
+}
