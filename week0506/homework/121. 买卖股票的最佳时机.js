@@ -27,3 +27,17 @@ var maxProfit = function(prices) {
     }
     return dp[n - 1];
 }
+
+var maxProfit = function(prices) {
+    const n = prices.length;
+    if(n === 0) {
+        return 0;
+    }
+    let minPrice = prices[0];
+    const dp = new Array(n).fill(0);
+    for (let index = 1; index < n; index++) {
+        minPrice = Math.min(minPrice, prices[i]);
+        dp[i] = Math.max(prices[i] - minPrice, dp[i-1]);
+    }
+    return dp[i-1];
+}
